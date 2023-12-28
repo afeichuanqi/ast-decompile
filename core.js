@@ -53,7 +53,7 @@ function replace_list_to_string2(path, referenceMap) {
 
 function traverse_all_MemberExpression(ast) {
     const referenceMap = buildReferenceMap(ast);
-
+    console.info("编译开始");
     traverse(ast, {
         VariableDeclaration: {
             enter(path) {
@@ -67,6 +67,7 @@ function traverse_all_MemberExpression(ast) {
             enter: [replace_list_to_string]
         }
     });
+    console.info("编译完成");
 }
 
 function replace_list_to_string(path) {
